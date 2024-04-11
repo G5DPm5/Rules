@@ -2,8 +2,6 @@
 DOMAIN-SUFFIX,appledaily.com
 # BBC
 DOMAIN-SUFFIX,bbc.com
-# 中国数字时代
-DOMAIN-SUFFIX,chinadigitaltimes.net
 # 法轮大法
 DOMAIN-SUFFIX,falundafa.org
 # 明慧网
@@ -29,6 +27,31 @@ DOMAIN-SUFFIX,nytimes.com
 DOMAIN-SUFFIX,pincong.rocks
 # 华尔街日报
 DOMAIN-SUFFIX,wsj.com
+# 彭博社
+DOMAIN-SUFFIX,bloomberg.com
+# 独立报
+DOMAIN-SUFFIX,independent.co.uk
+# 独立报
+DOMAIN-SUFFIX,independent.co.uk
+# 自由西藏运动
+DOMAIN-SUFFIX,freetibet.org
+# 公民力量
+DOMAIN-SUFFIX,citizenpowerforchina.org
+# 藏人行政中央
+DOMAIN-SUFFIX,tibet.net
+DOMAIN-SUFFIX,indiatibet.net
+DOMAIN-SUFFIX,xizang-zhiye.org
+# 耶和华见证人
+DOMAIN-SUFFIX,jw.org
+# 禁闻网
+DOMAIN-SUFFIX,bannedbook.org
+# 德国之声
+DOMAIN-SUFFIX,dw.com
+# 风传媒
+DOMAIN-SUFFIX,storm.mg
+# 中国数字时代
+DOMAIN-SUFFIX,chinadigitaltimes.net
+
 
 
 
