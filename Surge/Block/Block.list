@@ -6,8 +6,19 @@ DOMAIN-SUFFIX,bbc.com
 DOMAIN-SUFFIX,chinadigitaltimes.net
 # 法轮大法
 DOMAIN-SUFFIX,falundafa.org
+# 明慧网
+DOMAIN-SUFFIX,minghui.org
+# 大纪元
+DOMAIN-SUFFIX,theepochtimes.com
+DOMAIN-KEYWORD,epochtimes
 # 美国之声
 DOMAIN-SUFFIX,voachinese.com
+# NTD Television
+DOMAIN-SUFFIX,ntdtv.com
+# 壹传媒
+DOMAIN-SUFFIX,nextdigital.com.hk
+# 达赖喇嘛
+DOMAIN-SUFFIX,dalailama.com
 # 自由亚洲
 DOMAIN-SUFFIX,rfa.org
 # 端传媒
@@ -18,6 +29,7 @@ DOMAIN-SUFFIX,nytimes.com
 DOMAIN-SUFFIX,pincong.rocks
 # 华尔街日报
 DOMAIN-SUFFIX,wsj.com
+
 
 
 
