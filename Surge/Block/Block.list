@@ -2,6 +2,7 @@
 DOMAIN-SUFFIX,appledaily.com
 # BBC
 DOMAIN-SUFFIX,bbc.com
+DOMAIN-SUFFIX,bbc.co.uk
 # 法轮大法
 DOMAIN-SUFFIX,falundafa.org
 # 明慧网
@@ -26,11 +27,9 @@ DOMAIN-SUFFIX,nytimes.com
 # 品葱
 DOMAIN-SUFFIX,pincong.rocks
 # 华尔街日报
-DOMAIN-SUFFIX,wsj.com
+DOMAIN,www.wsj.com
 # 彭博社
 DOMAIN-SUFFIX,bloomberg.com
-# 独立报
-DOMAIN-SUFFIX,independent.co.uk
 # 独立报
 DOMAIN-SUFFIX,independent.co.uk
 # 自由西藏运动
@@ -97,6 +96,16 @@ DOMAIN,www.aboluowang.com
 DOMAIN,2047.one
 # 神韵
 DOMAIN-SUFFIX,shenyunperformingarts.org
+# 三西猴的主页
+DOMAIN,cirosantilli.com
+# 法广
+DOMAIN,www.rfi.fr
+# 中国报
+DOMAIN,www.chinapress.com.my
+# Hancel's Blog
+DOMAIN,my.hancel.org
+# Miraheze
+DOMAIN-SUFFIX,miraheze.org
 
 
 
