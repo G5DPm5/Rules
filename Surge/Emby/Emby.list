@@ -1,0 +1,19 @@
+# Gugu Media
+DOMAIN-KEYWORD,n.gugu.m
+DOMAIN-KEYWORD,o.gugu.m
+DOMAIN-KEYWORD,6.gugu.m
+# SYN Streaming
+DOMAIN-KEYWORD,m.ntrrr.t
+# AcEmby
+DOMAIN-KEYWORD,c.zox.s
+# Peach Emby
+DOMAIN-KEYWORD,eachmv.m
+DOMAIN-KEYWORD,mbymv.t
+IP-CIDR,141.147.166.104/29,no-resolve
+# CC Emby
+DOMAIN-KEYWORD,c.coemn.c
+DOMAIN-KEYWORD,l.carryz.n
+# PornEmby
+DOMAIN-KEYWORD,ornemby.c
+DOMAIN-KEYWORD,d.prisms.c
+
