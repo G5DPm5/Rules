@@ -2,6 +2,9 @@
 DOMAIN-KEYWORD,n.gugu.m
 DOMAIN-KEYWORD,o.gugu.m
 DOMAIN-KEYWORD,6.gugu.m
+IP-CIDR,23.145.120.80/29,no-resolve
+IP-CIDR,154.9.249.92/30,no-resolve
+IP-CIDR6,2602:294:0:11f2::/124,no-resolve
 # SYN Streaming
 DOMAIN-KEYWORD,m.ntrrr.t
 # AcEmby
@@ -10,6 +13,7 @@ DOMAIN-KEYWORD,c.zox.s
 DOMAIN-KEYWORD,eachmv.m
 DOMAIN-KEYWORD,mbymv.t
 IP-CIDR,141.147.166.104/29,no-resolve
+IP-CIDR,168.138.45.96/29,no-resolve
 # CC Emby
 DOMAIN-KEYWORD,c.coemn.c
 DOMAIN-KEYWORD,l.carryz.n
