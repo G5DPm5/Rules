@@ -1,0 +1,133 @@
+mixed-port: 7890 # 混合端口
+allow-lan: false # 允许局域网连接
+mode: rule # 规则模式
+log-level: info # 日志级别
+ipv6: false # IPV6开关
+
+geodata-mode: true
+geox-url:
+  geoip: "https://mirror.ghproxy.com/https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat"
+  geosite: "https://mirror.ghproxy.com/https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat"
+
+dns:
+  enable: true
+  listen: :1053
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-filter:
+    - "*"
+    - "+.lan"
+    - "+.local"
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+  nameserver-policy:
+    "geosite:cn,private":
+      - https://doh.pub/dns-query
+      - https://dns.alidns.com/dns-query
+    "geosite:!cn":
+      - "https://dns.cloudflare.com/dns-query#dns"
+      - "https://dns.google/dns-query#dns"
+######### 锚点 start #######
+p:
+  &p {
+    type: http,
+    interval: 86400,
+    health-check:
+      {
+        enable: true,
+        url: https://en.wikipedia.org/wiki/1989_Tiananmen_Square_protests_and_massacre,
+        interval: 300,
+      },
+  }
+auto:
+  &auto {
+    type: url-test,
+    lazy: true,
+    url: https://en.wikipedia.org/wiki/1989_Tiananmen_Square_protests_and_massacre,
+    interval: 300,
+    use: [Subscribe],
+  }
+use: &use { type: select, use: [Subscribe] }
+load-balance:
+  &load-balance {
+    type: load-balance,
+    use: [Subscribe],
+    url: https://en.wikipedia.org/wiki/1989_Tiananmen_Square_protests_and_massacre,
+    interval: 300,
+    strategy: round-robin,
+  }
+c: &classical { type: http, behavior: classical, interval: 86400 }
+d: &domain { type: http, behavior: domain, interval: 86400 }
+i: &ipcidr { type: http, behavior: ipcidr, interval: 86400 }
+######### 锚点 end #######
+
+proxy-providers:
+  Subscribe:
+    <<: *p
+    url: https://mirror.ghproxy.com/https://gist.githubusercontent.com/
+    path: ./proxy_providers/tmp.yaml
+proxies: null
+proxy-groups:
+  [
+    { name: 🇺🇸 United States, <<: *use, filter: 🇺🇸(?!.*×) },
+    { name: 🇬🇧 Great Britain, <<: *use, filter: 🇬🇧 },
+    { name: 🇸🇬 Singapore, <<: *use, filter: 🇸🇬 },
+    { name: 🤖 AIs, <<: *use, filter: 🇺🇸.*\d+(\.\d)?× },
+    { name: ⏬ Downloads, type: select, proxies: [😈 Melancholy, 😇 Rhapsody] },
+    { name: ⚖️ Load Balance, <<: *load-balance, filter: S\s.* },
+    { name: 😈 Melancholy, <<: *auto, filter: (P|A)\s.* },
+    { name: 😇 Rhapsody, type: select, use: [Subscribe], filter: 0\.\d+ },
+  ]
+rule-providers:
+  Downloads:
+    {
+      <<: *classical,
+      url: https://raw.tuu.cat/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml,
+      path: ./ruleset/Downloads.yaml,
+    }
+  Emby:
+    {
+      <<: *classical,
+      url: https://raw.tuu.cat/Aurora-20/Proxy/main/Rules/Clash/Emby/Emby.yaml,
+      path: ./ruleset/Emby.yaml,
+    }
+  DMCA:
+    {
+      <<: *classical,
+      url: https://raw.tuu.cat/Aurora-20/Proxy/main/Rules/Clash/DMCA/DMCA.yaml,
+      path: ./ruleset/DMCA.yaml,
+    }
+  OpenAI:
+    {
+      <<: *classical,
+      url: https://raw.tuu.cat/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml,
+      path: ./ruleset/OpenAI.yaml,
+    }
+  Gemini:
+    {
+      <<: *classical,
+      url: https://raw.tuu.cat/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml,
+      path: ./ruleset/Gemini.yaml,
+    }
+  Claude:
+    {
+      <<: *classical,
+      url: https://raw.tuu.cat/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml,
+      path: ./ruleset/Claude.yaml,
+    }
+rules:
+  - GEOIP,Lan,DIRECT,no-resolve
+  - GEOSITE,CN,DIRECT,no-resolve
+  - GEOIP,CN,DIRECT,no-resolve
+  - IP-ASN,62014,🇸🇬 Singapore,no-resolve
+  - OR,((IP-ASN,62041,no-resolve),(IP-ASN,44097,no-resolve)),🇬🇧 Great Britain,
+  - RULE-SET,Downloads,⏬ Downloads,no-resolve
+  - RULE-SET,Emby,⏬ Downloads,no-resolve
+  - RULE-SET,OpenAI,🤖 AIs,no-resolve
+  - RULE-SET,Gemini,🤖 AIs,no-resolve
+  - RULE-SET,Claude,🤖 AIs,no-resolve
+  - RULE-SET,DMCA,⚖️ Load Balance,no-resolve
+  - MATCH,🇺🇸 United States
