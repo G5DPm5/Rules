@@ -47,6 +47,9 @@ const country_name = {
   TUR: ["(🇹🇷\\s)?(土耳其|Turkey|Türkiye|TU?R)", "🇹🇷"],
 };
 // Number 1->01 11->11
-const number_regular = [new RegExp("(\\d{2})(?!X)"), new RegExp("(\\d)(?!X)")];
+const number_regular = [
+  new RegExp("(\\d{2})-?(?!X)"),
+  new RegExp("(\\d)-?(?!X)"),
+];
 
 const node_info = new RegExp("\\[.*(\\d+(\\.\\d+)?)X\\]");
