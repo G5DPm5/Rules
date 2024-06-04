@@ -13,7 +13,6 @@ function operator(proxies = [], targetPlatform, context) {
 
       if (result.match(reg)) {
         result = result.replace(reg, country_name[key][1] + " ");
-        // console.log(result);
         break;
       }
     }
@@ -31,10 +30,9 @@ function operator(proxies = [], targetPlatform, context) {
      */
     if (!result.match(number_regular[0])) {
       result = result.replace(number_regular[1], "0$1");
-      console.log(result);
     }
 
-    proxy.name = name + result;
+    proxy.name = name + " " + result;
   });
 
   return proxies;
