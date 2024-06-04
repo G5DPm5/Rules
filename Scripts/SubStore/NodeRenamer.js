@@ -1,5 +1,5 @@
 function operator(proxies = [], targetPlatform, context) {
-  // const name = $arguments.name;
+  const name = $arguments.name;
   proxies.forEach((proxy = { name }) => {
     let result = proxy.name;
 
