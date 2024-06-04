@@ -34,9 +34,7 @@ function operator(proxies = [], targetPlatform, context) {
       console.log(result);
     }
 
-    // proxy.name = name + result;
-    proxy.name = result;
-    // ! test
+    proxy.name = name + result;
   });
 
   return proxies;
@@ -52,12 +50,3 @@ const country_name = {
 const number_regular = [new RegExp("(\\d{2})(?!X)"), new RegExp("(\\d)(?!X)")];
 
 const node_info = new RegExp("\\[.*(\\d+(\\.\\d+)?)X\\]");
-// ! test
-const proxies = [
-  { name: "🇺🇸 US1 AWS" },
-  { name: "🇺🇸 US2 Dmit" },
-  { name: "🇺🇸 US3 Misaka" },
-  { name: "🇺🇸 US12 T-mobile [UDPN 3X]" },
-];
-// ! test
-console.log(operator(proxies));
