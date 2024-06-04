@@ -46,7 +46,7 @@ const country_name = {
   USA: ["(🇺🇸\\s)?(美国|United\\sStates|USA?)", "🇺🇸"],
   SGP: ["(🇸🇬\\s)?(新加坡|Singapore|SGP?)", "🇸🇬"],
   DEU: ["(🇩🇪\\s)?(德国|Germany|DEU?)", "🇩🇪"],
-  TUR: ["(🇹🇷\\s)?(土耳其|Turkey|TU?R)", "🇹🇷"],
+  TUR: ["(🇹🇷\\s)?(土耳其|Turkey|Türkiye|TU?R)", "🇹🇷"],
 };
 // Number 1->01 11->11
 const number_regular = [new RegExp("(\\d{2})(?!X)"), new RegExp("(\\d)(?!X)")];
