@@ -29,10 +29,10 @@ function operator(proxies = [], targetPlatform, context) {
      * 11->11
      */
     if (!result.match(number_regular[0])) {
-      result = result.replace(number_regular[1], "0$1");
+      result = result.replace(number_regular[1], "0$1 ");
     }
 
-    proxy.name = name + " " + result;
+    proxy.name = name + " " + result.replace(/\s\s/, " ");
   });
 
   return proxies;
