@@ -67,7 +67,7 @@ const node_coefficient_rules = [
 
 const name_optimization = [
   {
-    previous: "-",
+    previous: "-(Media)?",
     current: " ",
   },
   {
