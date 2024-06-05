@@ -17,9 +17,12 @@ function operator(proxies = [], targetPlatform, context) {
       }
     }
 
-    if (result.match(node_coefficient)) {
-      result = result.replace(node_coefficient, "$1×");
-    }
+    node_coefficient_rules.forEach((rule) => {
+      if (result.match(rule)) {
+        result = result.replace(rule, "$1×");
+        return;
+      }
+    });
 
     /**
      * 1->01
@@ -28,8 +31,8 @@ function operator(proxies = [], targetPlatform, context) {
      * 10->10
      * 11->11
      */
-    if (!result.match(number_regular[0])) {
-      result = result.replace(number_regular[1], "0$1 ");
+    if (!result.match(number_rules[0])) {
+      result = result.replace(number_rules[1], "0$1 ");
     }
 
     proxy.name = name + " " + result.replace(/\s\s/, " ");
@@ -45,9 +48,12 @@ const country_name = {
   TUR: ["(🇹🇷\\s)?(土耳其|Turkey|Türkiye|TU?R)", "🇹🇷"],
 };
 // Number 1->01 11->11
-const number_regular = [
+const number_rules = [
   new RegExp("(\\d{2})-?(?!X|x)"),
   new RegExp("(\\d)-?(?!X|x)"),
 ];
 
-const node_coefficient = new RegExp("\\[?.*(\\d+(\\.\\d+)?)X|x\\]?");
+const node_coefficient_rules = [
+  new RegExp("\\[.*((\\d+)|(0\\.\\d))X\\]"),
+  new RegExp("(\\d+\\.\\d+)x"),
+];
