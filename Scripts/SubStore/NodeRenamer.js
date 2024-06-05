@@ -55,5 +55,5 @@ const number_rules = [
 
 const node_coefficient_rules = [
   new RegExp(/\[((\d+\.\d+)|.*(\d+))X\]/),
-  new RegExp("(\\d+\\.\\d+)x"),
+  new RegExp("(\\d+\\.\\d+)(x|X)"),
 ];
