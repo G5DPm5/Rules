@@ -46,8 +46,8 @@ const country_name = {
 };
 // Number 1->01 11->11
 const number_regular = [
-  new RegExp("(\\d{2})-?(?!X)"),
-  new RegExp("(\\d)-?(?!X)"),
+  new RegExp("(\\d{2})-?(?!X|x)"),
+  new RegExp("(\\d)-?(?!X|x)"),
 ];
 
-const node_info = new RegExp("\\[.*(\\d+(\\.\\d+)?)X\\]");
+const node_info = new RegExp("\\[.*(\\d+(\\.\\d+)?)X|x\\]");
