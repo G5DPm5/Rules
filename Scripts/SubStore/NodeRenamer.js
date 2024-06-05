@@ -36,7 +36,7 @@ function operator(proxies = [], targetPlatform, context) {
     }
 
     name_optimization.forEach((rule) => {
-      result.replaceAll(rule["previous"], rule["current"]);
+      result = result.replaceAll(rule["previous"], rule["current"]);
     });
 
     proxy.name = result;
@@ -67,7 +67,7 @@ const node_coefficient_rules = [
 
 const name_optimization = [
   {
-    previous: /-/g,
+    previous: /\-/g,
     current: " ",
   },
   {
