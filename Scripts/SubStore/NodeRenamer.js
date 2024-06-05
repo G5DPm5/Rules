@@ -36,7 +36,7 @@ function operator(proxies = [], targetPlatform, context) {
     }
 
     name_optimization.forEach((rule) => {
-      result.replaceAll(new RegExp(rule["previous"]), rule["current"]);
+      result.replaceAll(new RegExp(rule["previous"], "g"), rule["current"]);
     });
 
     proxy.name = result;
