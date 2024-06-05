@@ -34,16 +34,23 @@ function operator(proxies = [], targetPlatform, context) {
     if (!result.match(number_rules[0])) {
       result = result.replace(number_rules[1], "0$1 ");
     }
-    proxy.name =
-      name + " " + result.replaceAll("-", " ").replaceAll(/\s+/g, " ");
+
+    name_optimization.forEach((rule) => {
+      result.replaceAll(new RegExp(rule["previous"]), rule["current"]);
+    });
+
+    proxy.name = result;
   });
 
   return proxies;
 }
 // Country Name
 const country_name = {
-  USA: ["(🇺🇸\\s)?(美国|United\\sStates|USA?)", "🇺🇸"],
+  HKG: ["(🇭🇰\\s)?(香港|Hong\\sKong|HKG?)", "🇭🇰"],
+  TWN: ["(🇹🇼\\s)?(台湾|Taiwan|TWN?)", "🇹🇼"],
   SGP: ["(🇸🇬\\s)?(新加坡|Singapore|SGP?)", "🇸🇬"],
+  IND: ["(🇮🇳\\s)?(印度|India|IND?)", "🇮🇳"],
+  USA: ["(🇺🇸\\s)?(美国|United\\sStates|USA?)", "🇺🇸"],
   DEU: ["(🇩🇪\\s)?(德国|Germany|DEU?)", "🇩🇪"],
   TUR: ["(🇹🇷\\s)?(土耳其|Turkey|Türkiye|TU?R)", "🇹🇷"],
 };
@@ -56,4 +63,23 @@ const number_rules = [
 const node_coefficient_rules = [
   new RegExp(/\[((\d+\.\d+)|.*(\d+))X\]/),
   new RegExp("(\\d+\\.\\d+)(x|X)"),
+];
+
+const name_optimization = [
+  {
+    previous: "-",
+    current: " ",
+  },
+  {
+    previous: "\\s+",
+    current: " ",
+  },
+  {
+    previous: "misaka",
+    current: "Misaka",
+  },
+  {
+    previous: "T\\smobile",
+    current: "T-mobile",
+  },
 ];
