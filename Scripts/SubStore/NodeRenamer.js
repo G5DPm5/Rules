@@ -47,7 +47,7 @@ function operator(proxies = [], targetPlatform, context) {
 // Country Name
 const country_name = {
   HKG: ["(🇭🇰\\s)?(香港|Hong\\sKong|HKG?)", "🇭🇰"],
-  TWN: ["(🇹🇼\\s)?(台湾|Taiwan|TWN?)", "🇹🇼"],
+  TWN: ["((🇹🇼|🇨🇳)\\s)?(台湾|Taiwan|TWN?)", "🇹🇼"],
   SGP: ["(🇸🇬\\s)?(新加坡|Singapore|SGP?)", "🇸🇬"],
   IND: ["(🇮🇳\\s)?(印度|India|IND?)", "🇮🇳"],
   USA: ["(🇺🇸\\s)?(美国|United\\sStates|USA?)", "🇺🇸"],
