@@ -39,7 +39,7 @@ function operator(proxies = [], targetPlatform, context) {
       result = result.replaceAll(rule["previous"], rule["current"]);
     });
 
-    proxy.name = name + result;
+    proxy.name = name + " " + result;
   });
 
   return proxies;
