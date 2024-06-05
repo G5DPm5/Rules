@@ -67,7 +67,7 @@ const node_coefficient_rules = [
 
 const name_optimization = [
   {
-    previous: "-(Media)?",
+    previous: "-",
     current: " ",
   },
   {
@@ -81,5 +81,9 @@ const name_optimization = [
   {
     previous: "T\\smobile",
     current: "T-mobile",
+  },
+  {
+    previous: "Media",
+    current: "",
   },
 ];
