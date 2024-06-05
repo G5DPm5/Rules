@@ -17,8 +17,8 @@ function operator(proxies = [], targetPlatform, context) {
       }
     }
 
-    if (result.match(node_info)) {
-      result = result.replace(node_info, "$1×");
+    if (result.match(node_coefficient)) {
+      result = result.replace(node_coefficient, "$1×");
     }
 
     /**
@@ -50,4 +50,4 @@ const number_regular = [
   new RegExp("(\\d)-?(?!X|x)"),
 ];
 
-const node_info = new RegExp("\\[.*(\\d+(\\.\\d+)?)X|x\\]");
+const node_coefficient = new RegExp("\\[?.*(\\d+(\\.\\d+)?)X|x\\]?");
