@@ -36,7 +36,7 @@ function operator(proxies = [], targetPlatform, context) {
     }
 
     name_optimization.forEach((rule) => {
-      result.replaceAll(new RegExp(rule["previous"], "g"), rule["current"]);
+      result.replaceAll(rule["previous"], rule["current"]);
     });
 
     proxy.name = result;
@@ -67,23 +67,23 @@ const node_coefficient_rules = [
 
 const name_optimization = [
   {
-    previous: "-",
+    previous: /-/g,
     current: " ",
   },
   {
-    previous: "\\s+",
+    previous: /\s+/g,
     current: " ",
   },
   {
-    previous: "misaka",
+    previous: /misaka/g,
     current: "Misaka",
   },
   {
-    previous: "T\\smobile",
+    previous: /T\smobile/g,
     current: "T-mobile",
   },
   {
-    previous: "Media",
+    previous: /Media/g,
     current: "",
   },
 ];
