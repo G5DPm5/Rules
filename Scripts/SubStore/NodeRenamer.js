@@ -5,8 +5,6 @@ function operator(proxies = [], targetPlatform, context) {
 
     /**
      * [flag] US -> [flag]
-     * [flag] DE -> [flag]
-     * [flag] SG -> [flag]
      */
     for (const key in country_name) {
       const reg = new RegExp(country_name[key][0]);
@@ -19,17 +17,16 @@ function operator(proxies = [], targetPlatform, context) {
 
     node_coefficient_rules.forEach((rule) => {
       if (result.match(rule)) {
-        result = result.replace(rule, "$1×");
+        result = result.replace(rule, "$1×").replace(/\.?0+×/, "×");
         return;
       }
     });
 
     /**
      * 1->01
-     * 2->02
      * ...
      * 10->10
-     * 11->11
+     * ...
      */
     if (!result.match(number_rules[0])) {
       result = result.replace(number_rules[1], "0$1 ");
