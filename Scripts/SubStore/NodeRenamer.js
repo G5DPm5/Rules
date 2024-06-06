@@ -67,8 +67,8 @@ const country_name = {
 };
 // Number 1->01 11->11
 const number_rules = [
-  new RegExp("(\\d{2})(?!X|x|\\.|×)"),
-  new RegExp("(\\d)(?!X|x|\\.|×)"),
+  new RegExp("(\\d{2})(?!.*(X|x|\\.|×))"),
+  new RegExp("(\\d)(?!.*(X|x|\\.|×))"),
 ];
 
 const node_coefficient_rules = [
