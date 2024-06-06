@@ -24,13 +24,6 @@ function operator(proxies = [], targetPlatform, context) {
       }
     }
 
-    node_coefficient_rules.forEach((rule) => {
-      if (result.match(rule)) {
-        result = result.replace(rule, "$1×").replace(/\.?0+×/, "×");
-        return;
-      }
-    });
-
     /**
      * 1->01
      * ...
@@ -40,6 +33,13 @@ function operator(proxies = [], targetPlatform, context) {
     if (!result.match(number_rules[0])) {
       result = result.replace(number_rules[1], "0$1 ");
     }
+
+    node_coefficient_rules.forEach((rule) => {
+      if (result.match(rule)) {
+        result = result.replace(rule, "$1×").replace(/\.?0+×/, "×");
+        return;
+      }
+    });
 
     name_optimization.forEach((rule) => {
       result = result.replaceAll(rule["previous"], rule["current"]);
@@ -67,8 +67,8 @@ const country_name = {
 };
 // Number 1->01 11->11
 const number_rules = [
-  new RegExp("(\\d{2})(?!X|x)"),
-  new RegExp("(\\d)(?!X|x)"),
+  new RegExp("(\\d{2})(?!X|x|\\.|×)"),
+  new RegExp("(\\d)(?!X|x|\\.|×)"),
 ];
 
 const node_coefficient_rules = [
