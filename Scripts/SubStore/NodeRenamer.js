@@ -16,9 +16,8 @@ function operator(proxies = [], targetPlatform, context) {
      * 10->10
      * ...
      */
-    if (!result.match(number_rules[0])) {
-      result = result.replace(number_rules[1], "0$1 ");
-    }
+
+    result = node_order_optimization(result);
 
     node_coefficient_rules.forEach((rule) => {
       if (result.match(rule)) {
@@ -69,13 +68,20 @@ function country_name_optimization(name = "") {
   for (const key in country_name) {
     const reg = new RegExp(country_name[key][0]);
 
-    if (proxy.match(reg)) {
-      proxy = proxy.replace(reg, country_name[key][1] + " ");
+    if (name.match(reg)) {
+      name = name.replace(reg, country_name[key][1] + " ");
       break;
     }
   }
 
-  return proxy;
+  return name;
+}
+
+function node_order_optimization(name = "") {
+  if (!name.match(number_rules[0])) {
+    name = name.replace(number_rules[1], "0$1 ");
+  }
+  return name;
 }
 
 // Number 1->01 11->11
