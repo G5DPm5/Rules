@@ -5,17 +5,7 @@ function operator(proxies = [], targetPlatform, context) {
   proxies.forEach((proxy = { name: "" }) => {
     let result = proxy.name;
 
-    /**
-     * [flag] US -> [flag]
-     */
     result = country_name_optimization(result);
-
-    /**
-     * 1->01
-     * ...
-     * 10->10
-     * ...
-     */
 
     result = node_order_optimization(result);
 
@@ -78,17 +68,14 @@ function country_name_optimization(name = "") {
 }
 
 function node_order_optimization(name = "") {
+  // Number 1->01 11->11
+  const number_rules = [/(\d{2})(?!.*(X|x\\.|×))/, /(\d)(?!.*(X|x\\.|×))/];
+
   if (!name.match(number_rules[0])) {
     name = name.replace(number_rules[1], "0$1 ");
   }
   return name;
 }
-
-// Number 1->01 11->11
-const number_rules = [
-  new RegExp("(\\d{2})(?!.*(X|x|\\.|×))"),
-  new RegExp("(\\d)(?!.*(X|x|\\.|×))"),
-];
 
 const node_coefficient_rules = [
   new RegExp(/\[((\d+\.\d+)|.*(\d+))(X|x)\]/),
