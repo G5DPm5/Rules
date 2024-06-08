@@ -49,7 +49,7 @@ function nodes_filter(proxies = []) {
   return proxies;
 }
 
-function country_name_optimization(proxy = "") {
+function country_name_optimization(name = "") {
   // Country Name
   const country_name = {
     HKG: ["(🇭🇰\\s)?(香港|Hong\\sKong|HKG?)", "🇭🇰"],
