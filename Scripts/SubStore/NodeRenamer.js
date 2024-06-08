@@ -2,20 +2,13 @@ function operator(proxies = [], targetPlatform, context) {
   proxies = nodes_filter(proxies);
 
   const name = $arguments.name;
-  proxies.forEach((proxy = { name }) => {
+  proxies.forEach((proxy = { name: "" }) => {
     let result = proxy.name;
 
     /**
      * [flag] US -> [flag]
      */
-    for (const key in country_name) {
-      const reg = new RegExp(country_name[key][0]);
-
-      if (result.match(reg)) {
-        result = result.replace(reg, country_name[key][1] + " ");
-        break;
-      }
-    }
+    result = country_name_optimization(result);
 
     /**
      * 1->01
@@ -55,21 +48,36 @@ function nodes_filter(proxies = []) {
 
   return proxies;
 }
-// Country Name
-const country_name = {
-  HKG: ["(🇭🇰\\s)?(香港|Hong\\sKong|HKG?)", "🇭🇰"],
-  TWN: ["((🇹🇼|🇨🇳)\\s)?(台湾|Taiwan|TWN?)", "🇹🇼"],
-  SGP: ["(🇸🇬\\s)?(新加坡|Singapore|SGP?)", "🇸🇬"],
-  IND: ["(🇮🇳\\s)?(印度|India|IND?)", "🇮🇳"],
-  IDN: ["(🇮🇩\\s)?(印度尼西亚|印尼|Indonesia|IDN?)", "🇮🇩"],
-  PHL: ["(🇵🇭\\s)?(菲律宾|Philippines|PHL?)", "🇵🇭"],
-  MYS: ["(🇲🇾\\s)?(马来西亚|Malaysia|MYS?)", "🇲🇾"],
-  MAC: ["(🇲🇴\\s)?(澳门|Macao|MAC|MO)", "🇲🇴"],
-  THA: ["(🇹🇭\\s)?(泰国|Thailand|THA?)", "🇹🇭"],
-  USA: ["(🇺🇸\\s)?(美国|United\\sStates|USA?)", "🇺🇸"],
-  DEU: ["(🇩🇪\\s)?(德国|Germany|DEU?)", "🇩🇪"],
-  TUR: ["(🇹🇷\\s)?(土耳其|Turkey|Türkiye|TU?R)", "🇹🇷"],
-};
+
+function country_name_optimization(proxy = "") {
+  // Country Name
+  const country_name = {
+    HKG: ["(🇭🇰\\s)?(香港|Hong\\sKong|HKG?)", "🇭🇰"],
+    TWN: ["((🇹🇼|🇨🇳)\\s)?(台湾|Taiwan|TWN?)", "🇹🇼"],
+    SGP: ["(🇸🇬\\s)?(新加坡|Singapore|SGP?)", "🇸🇬"],
+    IND: ["(🇮🇳\\s)?(印度|India|IND?)", "🇮🇳"],
+    IDN: ["(🇮🇩\\s)?(印度尼西亚|印尼|Indonesia|IDN?)", "🇮🇩"],
+    PHL: ["(🇵🇭\\s)?(菲律宾|Philippines|PHL?)", "🇵🇭"],
+    MYS: ["(🇲🇾\\s)?(马来西亚|Malaysia|MYS?)", "🇲🇾"],
+    MAC: ["(🇲🇴\\s)?(澳门|Macao|MAC|MO)", "🇲🇴"],
+    THA: ["(🇹🇭\\s)?(泰国|Thailand|THA?)", "🇹🇭"],
+    USA: ["(🇺🇸\\s)?(美国|United\\sStates|USA?)", "🇺🇸"],
+    DEU: ["(🇩🇪\\s)?(德国|Germany|DEU?)", "🇩🇪"],
+    TUR: ["(🇹🇷\\s)?(土耳其|Turkey|Türkiye|TU?R)", "🇹🇷"],
+  };
+
+  for (const key in country_name) {
+    const reg = new RegExp(country_name[key][0]);
+
+    if (proxy.match(reg)) {
+      proxy = proxy.replace(reg, country_name[key][1] + " ");
+      break;
+    }
+  }
+
+  return proxy;
+}
+
 // Number 1->01 11->11
 const number_rules = [
   new RegExp("(\\d{2})(?!.*(X|x|\\.|×))"),
