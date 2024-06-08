@@ -1,7 +1,7 @@
 function operator(proxies = [], targetPlatform, context) {
   proxies = nodes_filter(proxies);
 
-  const name = $arguments.name;
+  const name = $arguments.name + " ";
   proxies.forEach((proxy = { name: "" }) => {
     let result = proxy.name;
 
@@ -9,18 +9,13 @@ function operator(proxies = [], targetPlatform, context) {
 
     result = node_order_optimization(result);
 
-    node_coefficient_rules.forEach((rule) => {
-      if (result.match(rule)) {
-        result = result.replace(rule, "$1×").replace(/\.?0+×/, "×");
-        return;
-      }
-    });
+    result = node_coefficient_optimization(result);
 
     name_optimization.forEach((rule) => {
       result = result.replaceAll(rule["previous"], rule["current"]);
     });
 
-    proxy.name = name + " " + result;
+    proxy.name = name + result;
   });
 
   return proxies;
@@ -77,10 +72,9 @@ function node_order_optimization(name = "") {
   return name;
 }
 
-const node_coefficient_rules = [
-  new RegExp(/\[((\d+\.\d+)|.*(\d+))(X|x)\]/),
-  new RegExp("(\\d+\\.\\d+)(x|X)"),
-];
+function node_coefficient_optimization(name = "") {
+  return name.replace(/(\d+(\.\d+)?)(x|X)/, "$1×").replace(/\.?0+×/, "×");
+}
 
 const name_optimization = [
   {
