@@ -11,9 +11,7 @@ function operator(proxies = [], targetPlatform, context) {
 
     result = node_coefficient_optimization(result);
 
-    name_optimization.forEach((rule) => {
-      result = result.replaceAll(rule["previous"], rule["current"]);
-    });
+    result = name_optimization(result);
 
     proxy.name = name + result;
   });
@@ -76,25 +74,33 @@ function node_coefficient_optimization(name = "") {
   return name.replace(/(\d+(\.\d+)?)(x|X)/, "$1×").replace(/\.?0+×/, "×");
 }
 
-const name_optimization = [
-  {
-    previous: /\-/g,
-    current: " ",
-  },
-  {
-    previous: /\s+/g,
-    current: " ",
-  },
-  {
-    previous: /misaka/g,
-    current: "Misaka",
-  },
-  {
-    previous: /T\smobile/g,
-    current: "T-mobile",
-  },
-  {
-    previous: /Media/g,
-    current: "",
-  },
-];
+function name_optimization(name = "") {
+  const name_optimization_rules = [
+    {
+      previous: /Media|\[|\]/g,
+      current: "",
+    },
+    {
+      previous: /\-/g,
+      current: " ",
+    },
+    {
+      previous: /misaka/g,
+      current: "Misaka",
+    },
+    {
+      previous: /T\smobile/g,
+      current: "T-mobile",
+    },
+    {
+      previous: /\s+/g,
+      current: " ",
+    },
+  ];
+
+  name_optimization_rules.forEach((rule) => {
+    name = name.replaceAll(rule["previous"], rule["current"]);
+  });
+
+  return name;
+}
