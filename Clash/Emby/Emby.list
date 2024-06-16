@@ -6,8 +6,7 @@ payload:
   - IP-CIDR,154.9.249.92/30,no-resolve
   - IP-CIDR6,2602:294:0:11f2::/124,no-resolve
   - DOMAIN-KEYWORD,m.ntrrr.t
-  - DOMAIN-KEYWORD,.zox.s
-  - DOMAIN-KEYWORD,zox.sh
+  - DOMAIN-KEYWORD,zox.sho
   - DOMAIN-KEYWORD,eachmv.m
   - DOMAIN-KEYWORD,mbymv.t
   - IP-CIDR,141.147.166.104/29,no-resolve

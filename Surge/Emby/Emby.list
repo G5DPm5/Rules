@@ -8,8 +8,7 @@ IP-CIDR6,2602:294:0:11f2::/124,no-resolve
 # SYN Streaming
 DOMAIN-KEYWORD,m.ntrrr.t
 # AcEmby
-DOMAIN-KEYWORD,.zox.s
-DOMAIN-KEYWORD,zox.sh
+DOMAIN-KEYWORD,zox.sho
 # Peach Emby
 DOMAIN-KEYWORD,eachmv.m
 DOMAIN-KEYWORD,mbymv.t
