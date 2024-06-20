@@ -9,6 +9,7 @@ IP-CIDR6,2602:294:0:11f2::/124,no-resolve
 DOMAIN-KEYWORD,m.ntrrr.t
 # AcEmby
 DOMAIN-KEYWORD,zox.sho
+IP-CIDR,104.218.236.14/28,no-resolve
 # Peach Emby
 DOMAIN-KEYWORD,eachmv.m
 DOMAIN-KEYWORD,mbymv.t
