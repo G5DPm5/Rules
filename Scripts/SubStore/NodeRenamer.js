@@ -34,7 +34,7 @@ function nodes_filter(proxies = []) {
 function country_name_optimization(name = "") {
   // Country Name
   const country_name = {
-    HKG: ["(🇭🇰\\s)?(香港|Hong\\sKong|HKG?)", "🇭🇰"],
+    HKG: ["(🇭🇰\\s)?(香港|Hong\\s?Kong|HKG?)", "🇭🇰"],
     TWN: ["((🇹🇼|🇨🇳)\\s)?(台湾|Taiwan|TWN?)", "🇹🇼"],
     SGP: ["(🇸🇬\\s)?(新加坡|Singapore|SGP?)", "🇸🇬"],
     IND: ["(🇮🇳\\s)?(印度|India|IND?)", "🇮🇳"],
@@ -43,7 +43,7 @@ function country_name_optimization(name = "") {
     MYS: ["(🇲🇾\\s)?(马来西亚|Malaysia|MYS?)", "🇲🇾"],
     MAC: ["(🇲🇴\\s)?(澳门|Macao|MAC|MO)", "🇲🇴"],
     THA: ["(🇹🇭\\s)?(泰国|Thailand|THA?)", "🇹🇭"],
-    USA: ["(🇺🇸\\s)?(美国|United\\sStates|USA?)", "🇺🇸"],
+    USA: ["(🇺🇸\\s)?(美国|United\\s?States|USA?)", "🇺🇸"],
     DEU: ["(🇩🇪\\s)?(德国|Germany|DEU?)", "🇩🇪"],
     TUR: ["(🇹🇷\\s)?(土耳其|Turkey|Türkiye|TU?R)", "🇹🇷"],
   };
