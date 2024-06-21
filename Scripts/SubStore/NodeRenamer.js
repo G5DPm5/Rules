@@ -62,7 +62,7 @@ function country_name_optimization(name = "") {
 
 function node_order_optimization(name = "") {
   // Number 1->01 11->11
-  const number_rules = [/(\d{2})(?!.*(X|x\\.|×))/, /(\d)(?!.*(X|x\\.|×))/];
+  const number_rules = [/(\d{2})(?!(X|x\\.|×))/, /(\d)(?!(X|x\\.|×))/];
 
   if (!name.match(number_rules[0])) {
     name = name.replace(number_rules[1], "0$1 ");
