@@ -1,0 +1,13 @@
+#!name=Aurora 自用广告净化
+#!desc=Aurora 自用广告净化
+#!system=ios
+
+[Script]
+
+
+[Map Local]
+# 下厨房广告
+^https:\/\/api.xiachufang.com\/v2\/ad/.*json data-type=text data="{}"
+
+[MITM] 
+hostname = %APPEND% api.xiachufang.com
