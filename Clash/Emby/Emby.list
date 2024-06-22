@@ -1,9 +1,6 @@
 payload:
-  - DOMAIN-KEYWORD,n.gugu.m
-  - DOMAIN-KEYWORD,o.gugu.m
+  - DOMAIN-KEYWORD,n.gugumedia.s
   - DOMAIN-KEYWORD,6.gugu.m
-  - IP-CIDR,23.145.120.80/29,no-resolve
-  - IP-CIDR,154.9.249.92/30,no-resolve
   - IP-CIDR6,2602:294:0:11f2::/124,no-resolve
   - DOMAIN-KEYWORD,m.ntrrr.t
   - DOMAIN-KEYWORD,zox.sho
