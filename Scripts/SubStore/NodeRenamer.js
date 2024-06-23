@@ -61,7 +61,9 @@ function country_name_optimization(name = "") {
     ARG: ["(🇦🇷\\s)?(阿根廷|Argentina|ARG?)", "🇦🇷"],
     COL: ["(🇨🇴\\s)?(哥伦比亚|Colombia|COL?)", "🇨🇴"],
     PER: ["(🇵🇪\\s)?(秘鲁|Peru|PER?)", "🇵🇪"],
+    BOL: ["(🇧🇴\\s)?(玻利维亚|Bolivia|BOL?)", "🇧🇴"],
     DEU: ["(🇩🇪\\s)?(德国|Germany|DEU?)", "🇩🇪"],
+    GBR: ["(🇬🇧\\s)?(英国|United\\s?Kingdom|GBR?|UK)", "🇬🇧"],
     TUR: ["(🇹🇷\\s)?(土耳其|Turkey|Türkiye|TU?R)", "🇹🇷"],
   };
 
