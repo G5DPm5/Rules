@@ -2,6 +2,7 @@
 DOMAIN,lens.l.google.com
 # TalkaTone
 DOMAIN-SUFFIX,tktn.be
+IP-ASN,18779,no-resolve
 # Poe
 DOMAIN-SUFFIX,poe.com
 DOMAIN-SUFFIX,poecdn.net
